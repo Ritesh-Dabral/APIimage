@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGE API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="stylesheet/index.css">
+</head>
+<body>
+    <h1>ImageAPI</h1>
+    <div class="ui container">
+        <div class="center">
+            <h3>Upload an Image:</h3>
+            <form class ="ui form" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="field">
+                    <label for="image">Upload Image:</label>
+                    <input type="file" id="image" name="imgURL"><br />
+                </div>
+                <button type="submit" class="ui button green">SUBMIT</button>
+            </form>
+    
+            <h3>Search for an image:</h3>
+            <form class ="ui form" action="/img" method="POST">
+                <div class="field">
+                    <label for="srch">ImageName: </label>
+                    <input type="text" name="imgName" id="srch" ><br>   
+                </div>
+                <div class="field">
+                    <label for="limit">Limit: </label>
+                    <input type="text" name="lim" id="limit" ><br>
+                </div>
+                <button type="submit" class="ui button purple">SUBMIT</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

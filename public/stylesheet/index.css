@@ -1,0 +1,21 @@
+body{
+    background-color: #d3d6d173;
+}
+
+h1 {
+    text-align: center;
+    color: #1a68b9a1;
+    font-family: cursive;
+    font-weight: 500;
+}
+
+input{
+    max-width: 600px;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 1rem;
+    border: solid rgba(43, 42, 42, 0.144) 1px;
+}

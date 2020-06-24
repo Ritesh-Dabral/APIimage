@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMAGE API</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="/stylesheet/result.css">
+</head>
+<body>
+    <div class="ui container">
+        <% resultRec.forEach( ele => { %>
+            <div class="card">
+                <h3><%= ele.name %></h3>
+                <p>
+                    id:<%= ele._id %><br/>
+                    url:<%= ele.url %><br/>
+                    type:<%= ele.type %><br/>
+                    Size:<%= ele.metaData.Size %> bytes<br/>
+                    Enc:<%= ele.metaData.encoding %><br />
+                    extType:<%= ele.metaData.extType %><br />
+                </p>
+            </div>
+        <% }); %>
+    </div>
+    <a href="/">Click to go back</a>
+</body>
+</html>

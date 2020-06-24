@@ -1,0 +1,17 @@
+body{
+    background-color: #ece6e69c;
+}
+
+.card {
+    margin: 1rem 1rem;
+    border: solid #00000047 1px;
+    border-radius: 1%;
+    max-width: 500px;
+    padding: 1rem;
+    background: #d2ecec;
+    overflow: auto;
+}
+
+a {
+    font-size: x-large;
+}
