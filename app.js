@@ -27,16 +27,18 @@ var newStorage = multer.diskStorage({
 });
 var upload = multer({storage:newStorage});
 
+PORT=  process.env.PORT || 8085;
 
+const URI = "mongodb+srv://riteshD:1pieceritZ@@cluster0.avrjs.azure.mongodb.net/myDBS?retryWrites=true&w=majority";
 
 function dataUpload (image){
-    mongo.connect("mongodb://127.0.0.1:27017/Images",warnings, function(err,db_response){
+    mongo.connect(URI,warnings, function(err,db_response){
         if(err){
-            console.log(err);
+            console.log("Couldn't connect\n",err);
         }
         else {
             console.log('connected to Image DB');
-            var dbObj = db_response.db("Images");
+            var dbObj = db_response.db("myDBS");
             dbObj.collection("images").insertOne(image,(err,res)=>{
                 if(err)
                     throw err;
@@ -47,44 +49,26 @@ function dataUpload (image){
     });
 }
 
-// function getData(imgName){
-//     mongo.connect("mongodb://127.0.0.1:27017/Images",warnings, function(err,db_response){
-//         if(err){
-//             console.log(err);
-//         }
-//         else {
-//             console.log('connected to Image DB');
-//             var dbObj = db_response.db("Images");
-//             dbObj.collection("images").find({"name":imgName}).toArray(function(err,result){
-//                 if(err)
-//                     throw err;
-//                 return result;
-//                 db_response.close();
-//             });
-//         }
-//     });
-// }
 
 //ROUTES
 app.get("/:img/:lim/search",(req,res)=>{
     var imgName = req.params.img;
     var lim = Number(req.params.lim);
-    if(isNaN(lim))
-        res.send("Limit Should Only Be a Number");
     
-    mongo.connect("mongodb://127.0.0.1:27017/Images",warnings, function(err,db_response){
+    console.log("getting data",lim);
+    mongo.connect(URI,warnings, function(err,db_response){
         if(err){
-            console.log(err);
+            console.log("Couldn't connect\n",err);
         }
         else {
             console.log('connected to Image DB');
-            var dbObj = db_response.db("Images");
+            var dbObj = db_response.db("myDBS");
             dbObj.collection("images").find({"name":imgName}).limit(lim).toArray(function(err,result){
                 if(err)
                     throw err;
                 console.log(result);
                 db_response.close();
-                res.render('result',{resultRec:result});
+                res.render('result',{resultRec:result, imgName:imgName});
             });
         }
     });
@@ -114,7 +98,7 @@ app.post('/upload', upload.single('imgURL'), function(req, res, next){
             dataUpload(image);
         }            
         else
-            res.send("Type Doesn't Match");
+            res.send(`<h1 style="text-align:center;">Type Doesn't Match</h1><br><a href="/">Click to go back</a>`);
     }
     res.redirect('/');
 });
@@ -124,6 +108,6 @@ app.get('/',(req,res)=>{
 });
 
 
-app.listen(8085,()=>{
+app.listen(PORT,()=>{
     console.log("SERVER STARTED");
 });

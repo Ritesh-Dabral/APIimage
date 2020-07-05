@@ -1,12 +1,19 @@
 body{
-    background-color: #d3d6d173;
+    background: #ebeff2;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    color: #797979;
 }
 
 h1 {
     text-align: center;
-    color: #1a68b9a1;
-    font-family: cursive;
     font-weight: 500;
+    color: #505458;
+    font-family: 'Karla', sans-serif;
+    margin: 1rem 0;
+    padding: 1rem;
 }
 
 input{
@@ -16,6 +23,16 @@ input{
 .center {
     margin: auto;
     width: 50%;
-    padding: 1rem;
-    border: solid rgba(43, 42, 42, 0.144) 1px;
+    padding: 20px;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+.buttonOnly{
+    width: 100%;
+    text-align: center;
 }

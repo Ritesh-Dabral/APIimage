@@ -14,25 +14,31 @@
             <h3>Upload an Image:</h3>
             <form class ="ui form" action="/upload" method="post" enctype="multipart/form-data">
                 <div class="field">
-                    <label for="image">Upload Image:</label>
+                    <label for="image">Upload Image to Extract data:</label>
                     <input type="file" id="image" name="imgURL"><br />
                 </div>
-                <button type="submit" class="ui button green">SUBMIT</button>
+                <div class="buttonOnly">
+                    <button type="submit" class="ui button green">SUBMIT</button>                    
+                </div>
             </form>
     
             <h3>Search for an image:</h3>
-            <form class ="ui form" action="/img" method="POST">
+            <form class ="ui form" action="/img" method="POST" onsubmit="return validateLimit()">
                 <div class="field">
                     <label for="srch">ImageName: </label>
-                    <input type="text" name="imgName" id="srch" ><br>   
+                    <input type="text" name="imgName" id="srch" required><br>   
                 </div>
                 <div class="field">
-                    <label for="limit">Limit: </label>
-                    <input type="text" name="lim" id="limit" ><br>
+                    <label for="limit">Limit: <span id="setLimit"></span> </label>
+                    <input type="text" name="lim" id="limit" required><br>
                 </div>
-                <button type="submit" class="ui button purple">SUBMIT</button>
+                <div class="buttonOnly">
+                    <button type="submit" class="ui button purple">SUBMIT</button>
+                </div>
             </form>
         </div>
     </div>
+
+    <script src="JS/index.js"></script>
 </body>
 </html>

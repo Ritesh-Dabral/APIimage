@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="/stylesheet/result.css">
 </head>
 <body>
-    <div class="ui container">
-        <% resultRec.forEach( ele => { %>
+    <h1>Showing Search Results for "<%= imgName %>"</h1>
+    <div class="ui container" id="myContainer">
+        <% resultRec.forEach( (ele,index) => { %>
             <div class="card">
                 <h3><%= ele.name %></h3>
-                <p>
-                    id:<%= ele._id %><br/>
-                    url:<%= ele.url %><br/>
-                    type:<%= ele.type %><br/>
-                    Size:<%= ele.metaData.Size %> bytes<br/>
-                    Enc:<%= ele.metaData.encoding %><br />
-                    extType:<%= ele.metaData.extType %><br />
-                </p>
+                <div>
+                    <span class="heading">id:</span> <span class="text"><%= ele._id %></span><br/>
+                    <span class="heading">url:</span> <span class="text"><%= ele.url %></span><br/>
+                    <span class="heading">type:</span> <span class="text"><%= ele.type %></span><br/>
+                    <span class="heading">Size:</span> <span class="text"><%= ele.metaData.Size %> bytes</span><br/>
+                    <span class="heading">Enc:</span> <span class="text"><%= ele.metaData.encoding %></span><br/>
+                    <span class="heading">extType:</span> <span class="text"><%= ele.metaData.extType %></span><br/>
+                    <div id="index"><%= index+1 %></div>
+                </div>
             </div>
         <% }); %>
     </div>
-    <a href="/">Click to go back</a>
+    <div id="buttonOnly">
+        <a href="/"><button type="submit" class="ui button blue">Back to home</button></a>
+    </div>
 </body>
 </html>

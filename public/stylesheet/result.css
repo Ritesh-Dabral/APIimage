@@ -1,17 +1,98 @@
-body{
-    background-color: #ece6e69c;
+body {
+    background: #ebeff2;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+    color: #797979;
+}
+h1 {
+    text-align: center;
+    font-weight: 500;
+    color: #505458;
+    font-family: 'Karla', sans-serif;
+    margin: 1rem 0;
+    padding: 1rem;
+}
+
+.ui.container {
+    display: flex;
+    padding: 1rem;
+    flex-wrap: wrap;
+    align-content: space-between;
 }
 
 .card {
     margin: 1rem 1rem;
     border: solid #00000047 1px;
-    border-radius: 1%;
-    max-width: 500px;
-    padding: 1rem;
+    width: 100%;
+    max-width: 30%;
     background: #d2ecec;
     overflow: auto;
+    padding: 20px;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
-a {
-    font-size: x-large;
+h3 {
+    text-align: center;
+    padding: 0 20px 20px 20px;
+    font-style: inherit;
+    font-family: initial;
+    font-weight: lighter;
+    font-size: xxx-large;
+}
+
+div#buttonOnly {
+    width: 100%;
+    text-align: center;
+    /* margin: auto; */
+    padding: 1rem;
+    margin: 2rem;
+}
+
+span {
+    color: #000000cc;
+    padding: 0 0 10px 10px;
+}
+
+div#index {
+    text-align: center;
+    color: black;
+    margin: 2rem 0 0 0;
+}
+
+div#myContainer {
+    padding: 20px;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-clip: padding-box;
+    margin-bottom: 20px;
+    background-color: #ffffff;
+}
+
+@media only screen and (max-width:990px){
+    .card{
+        max-width: 45%;
+    }
+}
+
+@media only screen and (max-width:650px){
+    .ui.container{
+        display: block
+    }
+    .card{
+        max-width: 100%;
+        padding: 0;
+        margin: 20px 0 20px 0;
+    }
 }
